@@ -132,7 +132,8 @@ Given /^teacher gives one karma point to student$/ do
 end
 
 Given /^teacher gives two karma points to student$/ do 
-  pending # express the regexp above with the code you wish you had
+  step 'teacher gives one karma point to student'
+  step 'teacher gives one karma point to student'
 end
 
 Then /^I know that my karma points are "(.*?)"$/ do |karma|
