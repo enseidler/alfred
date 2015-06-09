@@ -44,7 +44,6 @@ Feature: Assigment creation
     Then  I should see that it was successfully created
     And   assignment created should have "link" set as solution type
   
-  @wip
   Scenario: Defining public comments template
     Given I am logged in as teacher
     And I follow "Trabajos prácticos"
