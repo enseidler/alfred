@@ -42,6 +42,10 @@ Given /^a teacher assigned himself as on-charge of correction$/ do
   step 'I logged out'
 end
 
+Given /^a teacher assigned himself as on-charge of correction for "(.*?)"$/ do |assignment_name|
+  pending # express the regexp above with the code you wish you had
+end
+
 And /^I click "Asignarme a mi" on the last submission$/ do
   all(:xpath, "//button[@class='assign-to-me']").last.click
 end
@@ -125,4 +129,21 @@ Then(/^I should (not )?see last correction entry for "(.*?)" highlighted$/) do |
     expect(row[:class]).to_not include "error"
   end
 #  expect(row.has_css?("error")).to be (highlighted != 'not ')	#Should work but does not, dunno why.
+end
+
+
+Then /^public comments should be empty$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^private comments should be empty$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^public comments should say "(.*?)"$/ do |template|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^private comments should say "(.*?)"$/ do |template|
+  pending # express the regexp above with the code you wish you had
 end

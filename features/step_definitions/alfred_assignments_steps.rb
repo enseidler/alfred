@@ -165,6 +165,26 @@ Then /^assignment created should have "(.*?)" set as solution type$/ do |type|
   expect(Assignment.last.solution_type).to eq solution_type(type)
 end
 
+Then /^assignment created should have "(.*?)" set as public template$/ do |template|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^assignment created should have "(.*?)" set as private template$/ do |template|
+  pending # express the regexp above with the code you wish you had
+end
+
+Given /^an assignment "(.*?)" with public template "(.*?)" and private template "(.*?)" already created$/ do |assignment_name, public_template, private_template|
+  pending # express the regexp above with the code you wish you had
+end
+
+When /^I fill required data for assignment "(.*?)" and public template "(.*?)"$/ do |assignment_name, template|
+  pending # express the regexp above with the code you wish you had
+end
+
+When /^I fill required data for assignment "(.*?)" and private template "(.*?)"$/ do |assignment_name, template|
+  pending # express the regexp above with the code you wish you had
+end
+
 def solution_type(type)
   case type
   when 'file'
@@ -176,3 +196,4 @@ def solution_type(type)
   end
   solution
 end
+

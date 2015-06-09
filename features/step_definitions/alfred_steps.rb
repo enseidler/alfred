@@ -122,3 +122,15 @@ Then /^I should get file "(.*)"$/ do |file_name|
   page.response_headers["Content-Type"].should == "application/zip"
   page.response_headers["Content-Disposition"].should include("filename=#{file_name}")
 end
+
+Given /^teacher gives one karma point to student$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Given /^teacher gives two karma points to student$/ do 
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^I know that my karma points are "(.*?)"$/ do |karma|
+  pending # express the regexp above with the code you wish you had
+end
