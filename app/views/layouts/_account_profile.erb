@@ -1,7 +1,7 @@
 <% if (current_account.role == 'student') %>
   <li>
     <a id="karma-counter" rel="tooltip" title="Mis puntos de Karma">
-      Karma: <%= current_karma %>
+      <span class="label label-warning">Karma: <%= current_karma %></span>
     </a>		
   </li>
 <% end %>
