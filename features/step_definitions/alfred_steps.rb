@@ -132,5 +132,5 @@ Given /^teacher gives two karma points to student$/ do
 end
 
 Then /^I know that my karma points are "(.*?)"$/ do |karma|
-  pending # express the regexp above with the code you wish you had
+  page.find('#karma-counter').should have_content(karma)
 end
