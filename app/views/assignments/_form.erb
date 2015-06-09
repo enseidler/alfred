@@ -15,6 +15,15 @@
   </div>
 </fieldset>
 
+<% error = @assignment.errors.key?(:public_template) && @assignment.errors[:public_template].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :public_template, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_area :public_template, :class => 'input-xxlarge input-with-feedback', :rows => 4 %>
+    <span class='help-inline'><%= f.error_message_on(:public_template)  if error %></span>
+  </div>
+</fieldset>
+
 <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
   <%= f.label :is_optional, :class => 'control-label' %>
   <div class='controls'>
