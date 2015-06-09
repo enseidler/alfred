@@ -124,7 +124,11 @@ Then /^I should get file "(.*)"$/ do |file_name|
 end
 
 Given /^teacher gives one karma point to student$/ do
-  pending # express the regexp above with the code you wish you had
+  step 'I am logged in as teacher'
+  step 'I follow "Alumnos"'
+  step 'I follow "Ver estado de los TP"'
+  step 'I click "asignar karma"'
+  step 'I logged out'
 end
 
 Given /^teacher gives two karma points to student$/ do 
