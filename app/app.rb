@@ -106,6 +106,7 @@ module Alfred
     end
 
     get '/' do
+      update_current_karma
       render 'home/index'
     end
 
@@ -159,6 +160,7 @@ module Alfred
 
     get :course, :map => 'courses/:course_id' do
       set_current_course Course.first(:name => params[:course_id])
+      update_current_karma
       render 'home/index'
     end
 
