@@ -6,7 +6,6 @@
   Background:
     Given the course with teacher and student enrolled
 
-  @wip
   Scenario: Initial karma points
     Given I am logged in as student
     Then I know that my karma points are "0"
