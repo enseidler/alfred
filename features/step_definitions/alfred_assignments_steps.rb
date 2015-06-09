@@ -166,7 +166,7 @@ Then /^assignment created should have "(.*?)" set as solution type$/ do |type|
 end
 
 Then /^assignment created should have "(.*?)" set as public template$/ do |template|
-  pending # express the regexp above with the code you wish you had
+  expect(Assignment.last.public_template).to eq template
 end
 
 Then /^assignment created should have "(.*?)" set as private template$/ do |template|
@@ -178,7 +178,8 @@ Given /^an assignment "(.*?)" with public template "(.*?)" and private template 
 end
 
 When /^I fill required data for assignment "(.*?)" and public template "(.*?)"$/ do |assignment_name, template|
-  pending # express the regexp above with the code you wish you had
+  fill_in(:assignment_public_template, :with => template)
+  step "I fill required data for assignment entitled \"#{assignment_name}\""
 end
 
 When /^I fill required data for assignment "(.*?)" and private template "(.*?)"$/ do |assignment_name, template|
