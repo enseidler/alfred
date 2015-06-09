@@ -44,3 +44,20 @@ Feature: Assigment creation
     Then  I should see that it was successfully created
     And   assignment created should have "link" set as solution type
   
+  @wip
+  Scenario: Defining public comments template
+    Given I am logged in as teacher
+    And I follow "Trabajos prácticos"
+    And I follow "Nuevo"
+    When I fill required data for assignment "TP0" and public template "Publico"
+    Then I should see that it was successfully created
+    And assignment created should have "Publico" set as public template
+
+  @wip
+  Scenario: Defining private comments template
+    Given I am logged in as teacher
+    And I follow "Trabajos prácticos"
+    And I follow "Nuevo"
+    When I fill required data for assignment "TP0" and private template "Privado"
+    Then I should see that it was successfully created
+    And assignment created should have "Privado" set as private template
