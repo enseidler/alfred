@@ -20,6 +20,8 @@ class Assignment
   property :is_blocking, Boolean, :default => false
   property :solution_type, String, :default => Assignment.FILE
 
+  property :public_template, Text
+ 
   def self.find_by_course (course)
   	Assignment.all(:course => course)
   end
