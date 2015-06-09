@@ -10,7 +10,6 @@
     Given I am logged in as student
     Then I know that my karma points are "0"
   
-  @wip
   Scenario: Karma points after the teacher gives me one point
     Given teacher gives one karma point to student
     When I am logged in as student
