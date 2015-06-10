@@ -133,11 +133,11 @@ end
 
 
 Then /^public comments should be empty$/ do
-  pending # express the regexp above with the code you wish you had
+  page.find('.public-comments').text.should eq ''
 end
 
 Then /^private comments should be empty$/ do
-  pending # express the regexp above with the code you wish you had
+  page.find('.private-comments').text.should eq ''
 end
 
 Then /^public comments should say "(.*?)"$/ do |template|
