@@ -174,7 +174,13 @@ Then /^assignment created should have "(.*?)" set as private template$/ do |temp
 end
 
 Given /^an assignment "(.*?)" with public template "(.*?)" and private template "(.*?)" already created$/ do |assignment_name, public_template, private_template|
-  pending # express the regexp above with the code you wish you had
+  step 'I am logged in as teacher'
+  step 'I follow "Trabajos prácticos"'
+  step 'I follow "Nuevo"'
+  fill_in(:assignment_public_template, :with => public_template)
+  fill_in(:assignment_private_template, :with => private_template)
+  step "I fill data for blocking assignment \"#{assignment_name}\" without attached file"
+  step 'I logged out'
 end
 
 When /^I fill required data for assignment "(.*?)" and public template "(.*?)"$/ do |assignment_name, template|
@@ -185,6 +191,16 @@ end
 When /^I fill required data for assignment "(.*?)" and private template "(.*?)"$/ do |assignment_name, template|
   fill_in(:assignment_private_template, :with => template)
   step "I fill required data for assignment entitled \"#{assignment_name}\""
+end
+
+When /^I fill data for blocking assignment "(.*?)" without attached file$/ do |assignment_name|
+  @assignment_date = Date.today + 2
+  fill_in( :assignment_name,        :with => assignment_name)
+  fill_in( :assignment_deadline,    :with => @assignment_date)
+  check(:assignment_is_blocking)
+  select('link')
+  fill_in( :assignment_test_script, :with => "#!/bin/bash\necho $?")
+  step 'I click "Guardar y continuar"'
 end
 
 def solution_type(type)
@@ -198,4 +214,3 @@ def solution_type(type)
   end
   solution
 end
-

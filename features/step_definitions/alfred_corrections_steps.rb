@@ -43,7 +43,11 @@ Given /^a teacher assigned himself as on-charge of correction$/ do
 end
 
 Given /^a teacher assigned himself as on-charge of correction for "(.*?)"$/ do |assignment_name|
-  pending # express the regexp above with the code you wish you had
+  step 'I am logged in as teacher'
+  step 'I follow "Trabajos prácticos"'
+  step "I follow \"Correcciones\" for \"#{assignment_name}\""
+  step 'I click "Asignarme a mi" on the last submission'
+  step 'I logged out'
 end
 
 And /^I click "Asignarme a mi" on the last submission$/ do
@@ -131,7 +135,6 @@ Then(/^I should (not )?see last correction entry for "(.*?)" highlighted$/) do |
 #  expect(row.has_css?("error")).to be (highlighted != 'not ')	#Should work but does not, dunno why.
 end
 
-
 Then /^public comments should be empty$/ do
   page.find('.public-comments').text.should eq ''
 end
@@ -141,9 +144,9 @@ Then /^private comments should be empty$/ do
 end
 
 Then /^public comments should say "(.*?)"$/ do |template|
-  pending # express the regexp above with the code you wish you had
+  page.find('.public-comments').has_text? template
 end
 
 Then /^private comments should say "(.*?)"$/ do |template|
-  pending # express the regexp above with the code you wish you had
+  page.find('.private-comments').has_text? template
 end
