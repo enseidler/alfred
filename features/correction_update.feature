@@ -26,11 +26,10 @@ Feature: Correction update
     Then public comments should be empty
     And private comments should be empty
 
-  @wip
   Scenario: Correction with templates
-    Given an assignment "TP" with public template "publico" and private template "privado" already created
-    And a teacher assigned himself as on-charge of correction for "TP"
-    And "TP" has solution submitted by student
+    Given an assignment "TP3" with public template "publico" and private template "privado" already created
+    And "TP3" has link solution submitted by student
+    And a teacher assigned himself as on-charge of correction for "TP3"
     When I am logged in as teacher
     And I go to the homepage
     And I follow "Mis correcciones"
