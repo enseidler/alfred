@@ -19,7 +19,9 @@ Alfred::App.controllers :corrections do
 
   get :new, :parent => :solution  do
     solution = Solution.get(params[:solution_id])
-    @correction = Correction.new(:teacher => current_account, :solution => solution)
+    public_template = solution.assignment.public_template
+    private_template = solution.assignment.private_template
+    @correction = Correction.new(:teacher => current_account, :solution => solution, :public_comments => public_template, :private_comments => private_template)
     render 'corrections/new'
   end
 
