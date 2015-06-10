@@ -36,14 +36,18 @@ class Correction
     latest = Solution.latest_by_student_and_assignment(student,assignment)
     raise I18n.t('corrections.no_solutions_found') if latest.nil?
     raise I18n.t('corrections.solution_already_assigned') if !latest.correction.nil?
-    Correction.create(:solution => latest, :teacher_id => teacher.id)
+    private_template = assignment.private_template
+    public_template = assignment.public_template
+    Correction.create(:solution => latest, :teacher_id => teacher.id, :public_comments => public_template, :private_comments => private_template)
   end
 
   def self.assign_to_teacher(teacher, student, assignment)
     latest = Solution.latest_by_student_and_assignment(student,assignment)
     raise I18n.t('corrections.no_solutions_found') if latest.nil?
+    private_template = assignment.private_template
+    public_template = assignment.public_template
     if latest.correction.nil?
-      Correction.create(:solution => latest, :teacher_id => teacher.id)
+      Correction.create(:solution => latest, :teacher_id => teacher.id, :public_comments => public_template, :private_comments => private_template)
     else
       latest.correction.teacher_id=teacher.id
       latest.correction.save
