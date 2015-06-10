@@ -52,7 +52,6 @@ Feature: Assigment creation
     Then I should see that it was successfully created
     And assignment created should have "Publico" set as public template
 
-  @wip
   Scenario: Defining private comments template
     Given I am logged in as teacher
     And I follow "Trabajos prácticos"
