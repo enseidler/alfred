@@ -2,13 +2,13 @@
 <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
   <%= f.label t('corrections.form.public_comments'), :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_area :public_comments, :class => 'span8', :autofocus => true %>
+    <%= f.text_area :public_comments, :class => 'span8 public-comments', :autofocus => true %>
   </div>
 </fieldset>
 <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
   <%= f.label I18n.translate('corrections.form.private_comments'), :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_area :private_comments, :class => 'span8' %>
+    <%= f.text_area :private_comments, :class => 'span8 private-comments' %>
   </div>
 </fieldset>
 <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
