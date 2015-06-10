@@ -18,7 +18,6 @@ Feature: Correction update
     And   Correction's data successfuly updated
     And   Mail has been sent to student
   
-  @wip
   Scenario: Correction without templates
     Given I am logged in as teacher
     And I go to the homepage
