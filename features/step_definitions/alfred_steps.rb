@@ -69,6 +69,10 @@ Given /^the student "(.*?)"$/ do |student_name|
   @student.save
 end
 
+Given /^a student "(.*?)" with email "(.*?)"$/ do |student_name, student_email|
+  pending # express the regexp above with the code you wish you had
+end
+
 Then /^I log in as "(.*?)"$/ do |user_name|
   @account = Account.all( :name => user_name ).first
   visit '/login'
@@ -138,4 +142,13 @@ end
 
 Then /^I know that my karma points are "(.*?)"$/ do |karma|
   page.find('#karma-counter').should have_content(karma)
+end
+
+
+Then /^I see default profile photo$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^I see the profile photo for "(.*?)"$/ do |student_email|
+  pending # express the regexp above with the code you wish you had
 end
