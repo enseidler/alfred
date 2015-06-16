@@ -156,7 +156,10 @@ Then /^I see default profile photo$/ do
 end
 
 Then /^I see the profile photo for "(.*?)"$/ do |student_email|
-  hash = Digest::MD5.hexdigest(student_email.downcase)
-  gravatar = "https://s.gravatar.com/avatar/#{hash}"
-  expect(page).to have_xpath("//img[contains(@src,'#{gravatar}')]")
+  expect(page).to have_xpath("//img[contains(@src,'#{gravatar_path(student_email)}')]")
+end
+
+def gravatar_path(email)
+  hash = Digest::MD5.hexdigest(email.downcase)
+  return "https://s.gravatar.com/avatar/#{hash}"
 end
