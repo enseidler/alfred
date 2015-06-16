@@ -203,6 +203,14 @@ When /^I fill data for blocking assignment "(.*?)" without attached file$/ do |a
   step 'I click "Guardar y continuar"'
 end
 
+When(/^I fill required data fields for assignment "(.*?)"$/) do |assignment_name|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^assignment created should (not )?be optional for "(.*?)"$/ do |tag|
+  pending # express the regexp above with the code you wish you had
+end
+
 def solution_type(type)
   case type
   when 'file'
