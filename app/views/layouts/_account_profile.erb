@@ -2,7 +2,10 @@
   <li>
     <a id="karma-counter" rel="tooltip" title="Mis puntos de Karma">
       <span class="label label-warning">Karma: <%= current_karma %></span>
-    </a>		
+    </a>
   </li>
 <% end %>
+<li>
+  <%= image_tag(profile_photo) %>
+</li>
 <li><a rel="tooltip" href="/my/profile" title="Profile"><%= current_account.email %></a></li>
