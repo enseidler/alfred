@@ -81,8 +81,11 @@ Alfred::App.controllers :corrections do
       params[:correction][:grade] = ( grade.blank? ) ? nil : grade
       if @correction.update(params[:correction])
         flash[:success] = pat(:update_success, :model => 'Corrección', :id =>  "#{params[:id]}")
-        if (params[:save_and_notify])
+        if (params[:save_and_notify] || params[:guardar_e_ir_a_tps])
           deliver(:notification, :correction_result, @correction)
+        end
+        if (params[:guardar_e_ir_a_tps])
+          redirect url(:assignments, :index, :course_id => current_course.id)
         end
         redirect(url(:corrections, @correction.teacher.id, :index))
       else
