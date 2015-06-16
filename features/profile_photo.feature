@@ -9,7 +9,6 @@ Feature: Profile photo
     Given I am logged in as student
     Then I see default profile photo
 
-  @wip
   Scenario: User with Gravatar photo
     Given a student "Ezequiel" with email "enseidler@gmail.com"
     And I log in as "Ezequiel"
