@@ -150,3 +150,7 @@ end
 Then /^private comments should say "(.*?)"$/ do |template|
   page.find('.private-comments').has_text? template
 end
+
+Given(/^I fill in correction's information fields$/) do
+  pending # express the regexp above with the code you wish you had
+end

@@ -36,3 +36,17 @@ Feature: Correction update
     And I click "Corregir" on last correction
     Then public comments should say "publico"
     And private comments should say "privado"
+
+  @wip
+  Scenario: Save and go to the assignments page
+    Given I am logged in as teacher
+    And I go to the homepage
+    And I follow "Mis correcciones"
+    And I click "Corregir" on last correction
+    And I fill in correction's information fields
+    When I click "Guardar e ir a TPs"
+    Then I should be on the assignments page
+    And I should see "fue actualizado correctamente"
+    And Correction's data successfuly updated
+    And Mail has been sent to student
+  
