@@ -70,7 +70,12 @@ Given /^the student "(.*?)"$/ do |student_name|
 end
 
 Given /^a student "(.*?)" with email "(.*?)"$/ do |student_name, student_email|
-  pending # express the regexp above with the code you wish you had
+  @student = Factories::Account.student( student_name, "some_surname", student_email )
+  @student.buid = '77666'
+  @student.password = default_password
+  @student.password_confirmation = default_password
+  @student.courses << @course
+  @student.save
 end
 
 Then /^I log in as "(.*?)"$/ do |user_name|
@@ -146,7 +151,7 @@ end
 
 
 Then /^I see default profile photo$/ do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_xpath("//img[contains(@src,'https://s.gravatar.com/avatar')]")
 end
 
 Then /^I see the profile photo for "(.*?)"$/ do |student_email|
