@@ -152,5 +152,7 @@ Then /^private comments should say "(.*?)"$/ do |template|
 end
 
 Given(/^I fill in correction's information fields$/) do
-  pending # express the regexp above with the code you wish you had
+  fill_in :correction_public_comments, :with => 'Public comment'
+  fill_in :correction_private_comments, :with => 'Private comment'
+  fill_in :correction_grade, :with => '8.0'
 end
