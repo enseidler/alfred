@@ -15,6 +15,8 @@ describe Assignment do
   it { should respond_to( :solution_type ) }
   it { should respond_to( :public_template ) }
   it { should respond_to( :private_template ) }
+  it { should respond_to( :is_optional_mie ) }
+
 
   describe 'initialize' do
     
