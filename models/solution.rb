@@ -35,7 +35,7 @@ class Solution
   def register_test_result(result, output)
     self.test_result = result
     self.test_output = output
-    if (self.assignment.is_optional)
+    if (self.assignment.is_optional_for_tag(self.account.tag))
       correction =  Correction.new
       correction.solution = self
       correction.teacher = Account.alfred_user

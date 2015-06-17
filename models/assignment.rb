@@ -31,4 +31,12 @@ class Assignment
   def self.find_by_course (course)
   	Assignment.all(:course => course)
   end
+
+  def is_optional_for_tag(tag)
+    case tag
+      when "mie"
+        self.is_optional_mie
+    end
+  end
+
 end
