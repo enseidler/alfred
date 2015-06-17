@@ -6,6 +6,9 @@ migration 28, :add_is_optional_depends_on_tag do
     modify_table :assignments do
       add_column :is_optional_jt, "BOOLEAN"
     end
+    modify_table :assignments do
+      add_column :is_optional_jn, "BOOLEAN"
+    end
   end
 
   down do
@@ -14,6 +17,9 @@ migration 28, :add_is_optional_depends_on_tag do
     end
     modify_table :assignments do
       drop_column :is_optional_jt
+    end
+    modify_table :assignments do
+      drop_column :is_optional_jn
     end
   end
 end
