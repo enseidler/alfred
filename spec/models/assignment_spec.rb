@@ -34,6 +34,10 @@ describe Assignment do
       subject.is_optional_jt.should be_false
     end
 
+    it 'is_optional_jn should be false' do
+      subject.is_optional_jn.should be_false
+    end
+
   end
 
 end
