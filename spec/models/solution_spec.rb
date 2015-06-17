@@ -19,10 +19,12 @@ describe Solution do
 
 	describe 'register_test_result' do
 
-		it 'should create correction when assigment is_optional' do
+		it 'should create correction when assigment is optional for student with mie tag' do
 			assignment = Assignment.new
-			assignment.is_optional = true
+			assignment.is_optional_mie = true
+			student = Factories::Account.student
 			@solution.assignment = assignment
+			@solution.account = student
 			test_result = :passed
 			test_output = 'ok'
 			Correction.any_instance.should_receive(:save)
