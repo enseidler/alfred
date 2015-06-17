@@ -36,7 +36,11 @@ class Assignment
     case tag
       when "mie"
         self.is_optional_mie
+      when "jt"
+        self.is_optional_jt
+      when "jn"
+        self.is_optional_jn
     end
   end
-
+  
 end
