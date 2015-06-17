@@ -25,6 +25,7 @@ class Assignment
 
   property :is_optional_mie, Boolean, :default => false
   property :is_optional_jt, Boolean, :default => false
+  property :is_optional_jn, Boolean, :default => false
 
 
   def self.find_by_course (course)
