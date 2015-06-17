@@ -203,12 +203,12 @@ When /^I fill data for blocking assignment "(.*?)" without attached file$/ do |a
   step 'I click "Guardar y continuar"'
 end
 
-When(/^I fill required data fields for assignment "(.*?)"$/) do |assignment_name|
-  pending # express the regexp above with the code you wish you had
+Then /^assignment created should (not )?be optional for "(.*?)"$/ do |s_not, tag|
+  expect(Assignment.last.is_optional_for_tag(tag)).to be (s_not != 'not ')
 end
 
-Then /^assignment created should (not )?be optional for "(.*?)"$/ do |tag|
-  pending # express the regexp above with the code you wish you had
+When /^I check optional for "(.*?)"$/ do |tag|
+  find(:title, "#assignment_is_optional_#{tag}").set(true)
 end
 
 def solution_type(type)
