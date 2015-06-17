@@ -24,6 +24,8 @@ class Assignment
   property :private_template, Text
 
   property :is_optional_mie, Boolean, :default => false
+  property :is_optional_jt, Boolean, :default => false
+
 
   def self.find_by_course (course)
   	Assignment.all(:course => course)
