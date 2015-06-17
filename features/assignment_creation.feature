@@ -72,7 +72,6 @@ Feature: Assigment creation
     And assignment created should be optional for "jt"
     And assignment created should not be optional for "jn"  
 
-  @wip
   Scenario: Assignment is not optional for jt and jn
     Given I am logged in as teacher
     And I follow "Trabajos prácticos"
