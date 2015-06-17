@@ -29,8 +29,11 @@ Alfred::App.controllers :corrections do
 		@correction = Correction.create(params[:correction].merge({ 'solution_id' => params[:solution_id] }))
     if @correction.saved?
       flash[:success] = pat(:create_success, :model => 'Corrección', :id =>  "#{@correction.id}")
-      if (params[:save_and_notify])
+      if (params[:save_and_notify] || params[:guardar_e_ir_a_tps])
         deliver(:notification, :correction_result, @correction)
+      end
+      if (params[:guardar_e_ir_a_tps])
+        redirect url(:assignments, :index, :course_id => current_course.id)
       end
       redirect(url(:corrections, @correction.teacher.id, :index))
     else
