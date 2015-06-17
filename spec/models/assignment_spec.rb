@@ -17,6 +17,7 @@ describe Assignment do
   it { should respond_to( :private_template ) }
   it { should respond_to( :is_optional_mie ) }
   it { should respond_to( :is_optional_jt ) }
+  it { should respond_to( :is_optional_jn ) }
 
 
   describe 'initialize' do
