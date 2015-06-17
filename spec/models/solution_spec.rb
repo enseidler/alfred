@@ -31,6 +31,20 @@ describe Solution do
 			@solution.register_test_result(test_result, test_output)
 		end
 
+		it 'should create correction when assigment is optional for student with jn tag' do
+			assignment = Assignment.new
+			assignment.is_optional_jt = true
+			assignment.is_optional_jn = true
+			student = Factories::Account.student
+			student.tag = 'jn'
+			@solution.assignment = assignment
+			@solution.account = student
+			test_result = :passed
+			test_output = 'ok'
+			Correction.any_instance.should_receive(:save)
+			@solution.register_test_result(test_result, test_output)
+		end
+
 	end
 
 	describe 'is_overdue' do
