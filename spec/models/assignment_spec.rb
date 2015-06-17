@@ -42,6 +42,11 @@ describe Assignment do
       subject.is_optional_jn = true
       subject.is_optional_for_tag('jn').should be_true
     end
+    
+    it 'should be false when tag is mie' do
+      subject.is_optional_jt = true
+      subject.is_optional_for_tag('mie').should be_false
+    end
 
   end
 
