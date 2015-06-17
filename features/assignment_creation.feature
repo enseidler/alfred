@@ -60,14 +60,13 @@ Feature: Assigment creation
     Then I should see that it was successfully created
     And assignment created should have "Privado" set as private template
 
-  @wip
   Scenario: Assignment is not optional just for jn
     Given I am logged in as teacher
     And I follow "Trabajos prácticos"
     And I follow "Nuevo"
-    When I fill required data fields for assignment "TP0"
-    And I check "Optional for mie"
-    And I check "Optional for jt"
+    And I check optional for "mie"
+    And I check optional for "jt"
+    When I fill data for blocking assignment "TP0" without attached file
     Then I should see that it was successfully created
     And assignment created should be optional for "mie"
     And assignment created should be optional for "jt"
@@ -78,8 +77,8 @@ Feature: Assigment creation
     Given I am logged in as teacher
     And I follow "Trabajos prácticos"
     And I follow "Nuevo"
-    When I fill required data fields for assignment "TP0"
-    And I check "Optional for mie"
+    And I check optional for "mie"
+    When I fill data for blocking assignment "TP0" without attached file
     Then I should see that it was successfully created
     And assignment created should be optional for "mie"
     And assignment created should not be optional for "jt"  
