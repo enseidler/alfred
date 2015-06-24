@@ -37,14 +37,16 @@ Feature: Correction update
     Then public comments should say "publico"
     And private comments should say "privado"
 
-  Scenario: Save and go to the assignments page
+  @wip
+  Scenario: Save and return to the solutions for the TP1 page      
     Given I am logged in as teacher
-    And I go to the homepage
+    And I follow "Trabajos prácticos"
+    And I follow "Correcciones" for "TP1"
     And I follow "Mis correcciones"
     And I click "Corregir" on last correction
     And I fill in correction's information fields
-    When I click "Guardar e ir a tps"
-    Then I should be on the assignments page
+    When I click "Guardar e ir a entregas del tp"
+    Then I should be on the "Entregas" for the "TP1" page
     And I should see "fue actualizado correctamente"
     And Correction's data successfuly updated
     And Mail has been sent to student
