@@ -29,11 +29,11 @@ Alfred::App.controllers :corrections do
 		@correction = Correction.create(params[:correction].merge({ 'solution_id' => params[:solution_id] }))
     if @correction.saved?
       flash[:success] = pat(:create_success, :model => 'Corrección', :id =>  "#{@correction.id}")
-      if (params[:save_and_notify] || params[:guardar_e_ir_a_tps])
+      if (params[:save_and_notify] || params[:guardar_e_ir_a_entregas_del_tp])
         deliver(:notification, :correction_result, @correction)
       end
-      if (params[:guardar_e_ir_a_tps])
-        redirect url(:assignments, :index, :course_id => current_course.id)
+      if (params[:guardar_e_ir_a_entregas_del_tp])
+        redirect(url(:assignments, @correction.solution.assignment.id, :students))
       end
       redirect(url(:corrections, @correction.teacher.id, :index))
     else
@@ -84,11 +84,11 @@ Alfred::App.controllers :corrections do
       params[:correction][:grade] = ( grade.blank? ) ? nil : grade
       if @correction.update(params[:correction])
         flash[:success] = pat(:update_success, :model => 'Corrección', :id =>  "#{params[:id]}")
-        if (params[:save_and_notify] || params[:guardar_e_ir_a_tps])
+        if (params[:save_and_notify] || params[:guardar_e_ir_a_entregas_del_tp])
           deliver(:notification, :correction_result, @correction)
         end
-        if (params[:guardar_e_ir_a_tps])
-          redirect url(:assignments, :index, :course_id => current_course.id)
+        if (params[:guardar_e_ir_a_entregas_del_tp])
+          redirect(url(:assignments, @correction.solution.assignment.id, :students))
         end
         redirect(url(:corrections, @correction.teacher.id, :index))
       else
