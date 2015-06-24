@@ -22,8 +22,8 @@ module NavigationHelpers
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
 
-    when /the assignments page/
-      '/courses/2/assignments'
+    when /the "Entregas" for the "TP1" page/
+      '/assignments/2/students'
 
 
     else
