@@ -37,7 +37,6 @@ Feature: Correction update
     Then public comments should say "publico"
     And private comments should say "privado"
 
-  @wip
   Scenario: Save and return to the solutions for the TP1 page      
     Given I am logged in as teacher
     And I follow "Trabajos prácticos"
