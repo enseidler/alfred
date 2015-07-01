@@ -57,7 +57,6 @@ Feature: Correction update
     And I click "Corregir" on last correction
     Then test results should be "No disponible"
 
-  @wip
   Scenario: Teacher knows solution link when corrects
     When a teacher assigned himself as on-charge of correction for "TP2"
     And I am logged in as teacher

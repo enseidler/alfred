@@ -161,10 +161,10 @@ Then(/^test results should be "(.*?)"$/) do |test_results|
   step 'I should see "'+test_results+'"'
 end
 
-When(/^I click "(.*?)" on "(.*?)" correction$/) do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+Then(/^solution link should be "(.*?)"$/) do |solution_link|
+  step 'I should see "'+solution_link+'"'
 end
 
-Then(/^solution link should be "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Given(/^I click "(.*?)" on "(.*?)" correction$/) do |action_name, assignment_number|
+  as_teacher_for_assignment( 'TP2', action_name ).click
 end
