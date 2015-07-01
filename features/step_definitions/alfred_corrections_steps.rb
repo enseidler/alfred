@@ -156,3 +156,7 @@ Given(/^I fill in correction's information fields$/) do
   fill_in :correction_private_comments, :with => 'Private comment'
   fill_in :correction_grade, :with => '8.0'
 end
+
+Then(/^test results should be "(.*?)"$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
