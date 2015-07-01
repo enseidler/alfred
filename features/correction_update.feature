@@ -50,11 +50,9 @@ Feature: Correction update
     And Correction's data successfuly updated
     And Mail has been sent to student
 
-  @wip
   Scenario: Teacher knows test results when corrects
     Given I am logged in as teacher
     And I go to the homepage
     And I follow "Mis correcciones"
     And I click "Corregir" on last correction
     Then test results should be "No disponible"
-      
