@@ -3,7 +3,7 @@
   <p class="lead"><%= solution_abridged_info(@correction.solution) %></p>
   <p>
   <a href="mailto:#"><%= @correction.solution.account.email %></a> | 
-  <%= @correction.solution.account.tag %>
+  <%= @correction.solution.account.tag %> | Resultado test: <%= t @correction.solution.test_result %>
   </p>
   <p>
   <%= "#{t('solutions.form.comments')}" %>: 
