@@ -3,7 +3,9 @@
   <p class="lead"><%= solution_abridged_info(@correction.solution) %></p>
   <p>
   <a href="mailto:#"><%= @correction.solution.account.email %></a> | 
-  <%= @correction.solution.account.tag %> | Resultado test: <%= t @correction.solution.test_result %>
+  <%= @correction.solution.account.tag %> | Resultado test: <%= t @correction.solution.test_result %> <% if @correction.solution.assignment.solution_type == 'link' %>
+       | Link a entrega: <a href="<%= @correction.solution.link %>" target="_blank"><%= @correction.solution.link %></a> 
+  <% end %>
   </p>
   <p>
   <%= "#{t('solutions.form.comments')}" %>: 
