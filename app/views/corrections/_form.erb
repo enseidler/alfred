@@ -20,6 +20,13 @@
 </fieldset>
 <%= f.hidden_field :teacher_id, :value => current_account.id %>
 <div class="form-actions">
+  <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+    <%= f.label :is_blocking, :class => 'control-label' %>
+    <div class='controls'>
+      <%= f.check_box :is_blocking, :class => 'input-xlarge input-with-feedback' %>
+      <span class='help-inline'><%= f.error_message_on(:is_blocking) if error %></span>
+    </div>
+  </fieldset>
   <%= f.submit pat(:save), :class => 'btn btn-primary' %>
   &nbsp;
   <%= f.submit t(:save_and_notify), :class => 'btn btn-info', :name => 'save_and_notify' %>
