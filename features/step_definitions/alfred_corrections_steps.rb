@@ -158,9 +158,9 @@ Given(/^I fill in correction's information fields$/) do
 end
 
 When /^I check block assignment$/ do
-  pending # express the regexp above with the code you wish you had
+  find(:title, "#correction_is_blocking").set(true)
 end
 
 Then /^last correction should be blocked$/ do
-  pending # express the regexp above with the code you wish you had
+  expect(Correction.last.is_blocking).to eq true
 end
