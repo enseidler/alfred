@@ -24,6 +24,7 @@ describe Correction do
 	it { should respond_to( :public_comments ) }
 	it { should respond_to( :private_comments ) }
 	it { should respond_to( :grade ) }
+  it { should respond_to( :is_blocking ) }
 
 
   describe "creation" do
