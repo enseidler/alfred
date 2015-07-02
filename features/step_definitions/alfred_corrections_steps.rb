@@ -156,3 +156,11 @@ Given(/^I fill in correction's information fields$/) do
   fill_in :correction_private_comments, :with => 'Private comment'
   fill_in :correction_grade, :with => '8.0'
 end
+
+When /^I check block assignment$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^last correction should be blocked$/ do
+  pending # express the regexp above with the code you wish you had
+end
