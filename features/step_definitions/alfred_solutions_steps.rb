@@ -101,3 +101,8 @@ Given(/^A overdue solution for "(.*?)" submitted by a student$/) do |assignment_
   overdue.created_at = assignment.deadline+10
   overdue.save
 end
+
+Given /^the teacher corrects and blocks a "(.*?)" solution of student$/ do |assignment_name|
+  pending # express the regexp above with the code you wish you had
+end
+
