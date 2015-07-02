@@ -95,5 +95,12 @@ Feature: Solution submission
     And   I click submit solution for "TP1"
     And   I upload the solution's file for "TP1"
     Then  I should see "Solution creado exitosamente"
-
-
+  
+  @wip
+  Scenario: Submitting when assignment is already manually blocked
+    Given the teacher corrects and blocks a "TP2" solution of student
+    When I am logged in as student
+    And I follow "Trabajos prácticos"
+    And I click submit solution for "TP2"
+    And I fill in link to solution
+    Then I should see "La entrega ha sido bloqueada manualmente por un docente"
