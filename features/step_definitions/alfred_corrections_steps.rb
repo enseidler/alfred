@@ -156,3 +156,15 @@ Given(/^I fill in correction's information fields$/) do
   fill_in :correction_private_comments, :with => 'Private comment'
   fill_in :correction_grade, :with => '8.0'
 end
+
+Then(/^test results should be "(.*?)"$/) do |test_results|
+  step 'I should see "'+test_results+'"'
+end
+
+Then(/^solution link should be "(.*?)"$/) do |solution_link|
+  step 'I should see "'+solution_link+'"'
+end
+
+Given(/^I click "(.*?)" on "(.*?)" correction$/) do |action_name, assignment_number|
+  as_teacher_for_assignment( 'TP2', action_name ).click
+end

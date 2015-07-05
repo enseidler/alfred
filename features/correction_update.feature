@@ -49,4 +49,18 @@ Feature: Correction update
     And I should see "fue actualizado correctamente"
     And Correction's data successfuly updated
     And Mail has been sent to student
-  
+
+  Scenario: Teacher knows test results when corrects
+    Given I am logged in as teacher
+    And I go to the homepage
+    And I follow "Mis correcciones"
+    And I click "Corregir" on last correction
+    Then test results should be "No disponible"
+
+  Scenario: Teacher knows solution link when corrects
+    When a teacher assigned himself as on-charge of correction for "TP2"
+    And I am logged in as teacher
+    And I go to the homepage
+    And I follow "Mis correcciones"
+    And I click "Corregir" on "TP2" correction
+    Then solution link should be "http://www.mysolution.com/solution_for_assignment"
