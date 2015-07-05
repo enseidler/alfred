@@ -96,7 +96,6 @@ Feature: Solution submission
     And   I upload the solution's file for "TP1"
     Then  I should see "Solution creado exitosamente"
   
-  @wip
   Scenario: Submitting when assignment is already manually blocked
     Given the teacher corrects and blocks a "TP2" solution of student
     When I am logged in as student
