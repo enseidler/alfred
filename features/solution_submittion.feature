@@ -103,4 +103,5 @@ Feature: Solution submission
     And I follow "Trabajos prácticos"
     And I click submit solution for "TP2"
     And I fill in link to solution
+    And I click save button
     Then I should see "La entrega ha sido bloqueada manualmente por un docente"
