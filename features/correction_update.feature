@@ -50,6 +50,15 @@ Feature: Correction update
     And Correction's data successfuly updated
     And Mail has been sent to student
 
+    Scenario: Teacher can block assignment when the correction is made
+      Given I am logged in as teacher
+      And I go to the homepage
+      And I follow "Mis correcciones"
+      And I click "Corregir" on last correction
+      When I check block assignment
+      And I fill in correction's information
+      Then last correction should be blocked
+
   Scenario: Teacher knows test results when corrects
     Given I am logged in as teacher
     And I go to the homepage

@@ -18,7 +18,9 @@ class Correction
   property :solution_id, Integer, :required => true, :unique => :solution
 	property :created_at, DateTime
   property :updated_at, DateTime
-	property :solution_id, 	Integer,
+  property :is_blocking, Boolean, :default => false
+  property :solution_id,  Integer,
+  
 		:required => true, :unique => :solution
 
   validates_presence_of      :solution

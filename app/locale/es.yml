@@ -45,6 +45,7 @@ es:
       file_absent: 'Debe seleccionar archivo'
       link_absent: 'Debe especificar un link de entrega'
       deadline_passed: 'La fecha de entrega ha caducado'
+      blocked: 'La entrega ha sido bloqueada manualmente por un docente'
     form:
       file: 'Archivo a entregar'
       comments: 'Comentarios'

@@ -51,5 +51,13 @@ class Solution
   def is_overdue?
     created_at > assignment.deadline
   end
+  
+  def has_blocking_correction?
+    res = false
+    if not self.correction.nil?
+      res = correction.is_blocking
+    end
+    res
+  end
 
 end
