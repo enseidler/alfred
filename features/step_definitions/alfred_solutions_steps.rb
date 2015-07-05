@@ -103,6 +103,11 @@ Given(/^A overdue solution for "(.*?)" submitted by a student$/) do |assignment_
 end
 
 Given /^the teacher corrects and blocks a "(.*?)" solution of student$/ do |assignment_name|
-  pending # express the regexp above with the code you wish you had
+  step "\"#{assignment_name}\" has link solution submitted by student"
+  step "a teacher assigned himself as on-charge of correction for \"#{assignment_name}\""
+  step "as a teacher I go to correct last correction for \"#{assignment_name}\""
+  step "I check block assignment"
+  step "I fill in correction's information"
+  step "I logged out"
 end
 

@@ -62,6 +62,10 @@ And /^I click "(.*)" on last correction$/ do |action_name|
   as_teacher_for_assignment( 'TP1', action_name ).click
 end
 
+Given(/^I click "(.*?)" on "(.*?)" correction$/) do |action_name, assignment_name|
+  as_teacher_for_assignment( assignment_name, action_name ).click
+end
+
 And /^I fill in correction's information$/ do
   fill_in :correction_public_comments, :with => 'Public comment'
   fill_in :correction_private_comments, :with => 'Private comment'
@@ -106,6 +110,13 @@ When /^as a teacher I go to correct last correction$/ do
   step 'I go to the homepage'
   step 'I follow "Mis correcciones"' 
   step 'I click "Corregir" on last correction'
+end
+
+When /^as a teacher I go to correct last correction for "(.*?)"$/ do |assignment_name|
+  step 'I am logged in as teacher'
+  step 'I go to the homepage'
+  step 'I follow "Mis correcciones"' 
+  step "I click \"Corregir\" on \"#{assignment_name}\" correction"
 end
 
 Then /^I should see comment: "(.*?)"$/ do |comment|
