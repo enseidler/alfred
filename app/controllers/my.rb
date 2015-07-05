@@ -10,6 +10,11 @@ Alfred::App.controllers :my do
     assignment.is_blocking && assignment.deadline < Date.today
   end
 
+  define_method :is_blocked_by_teacher? do |assignment, student|
+    solutions_student = Solution.all(:account => student, :assignment => assignment)
+    solutions_student.any?{ |s| s.has_blocking_correction? }
+  end
+
   get :assigments, :parent => :courses do
     assignments = Assignment.find_by_course(current_course)
     @assignment_status = []
@@ -51,12 +56,14 @@ Alfred::App.controllers :my do
             :assignment => @assignment, :comments => params[:solution][:comments],
             :link => params[:solution][:link] )
     if is_blocked_by_date?(@assignment)
-	  errors << t('solutions.errors.deadline_passed')
-	elsif @assignment.solution_type == Assignment.LINK
-	  if params[:solution][:link] == ''
-	    errors << t('solutions.errors.link_absent')
-	  else
-	    DataMapper::Transaction.new(DataMapper.repository(:default).adapter) do |trx|
+	    errors << t('solutions.errors.deadline_passed')
+    elsif is_blocked_by_teacher?(@assignment, current_account)
+      errors << t('solutions.errors.blocked')
+	  elsif @assignment.solution_type == Assignment.LINK
+	    if params[:solution][:link] == ''
+	      errors << t('solutions.errors.link_absent')
+	    else
+	      DataMapper::Transaction.new(DataMapper.repository(:default).adapter) do |trx|
           if not @solution.save
             errors << @solution.errors
           end
