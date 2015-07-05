@@ -172,6 +172,10 @@ When /^I check block assignment$/ do
   find(:title, "#correction_is_blocking").set(true)
 end
 
+Then /^last correction should be blocked$/ do
+  expect(Correction.last.is_blocking).to eq true
+end
+
 Then(/^test results should be "(.*?)"$/) do |test_results|
   step 'I should see "'+test_results+'"'
 end
