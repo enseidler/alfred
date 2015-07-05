@@ -166,5 +166,5 @@ Then(/^solution link should be "(.*?)"$/) do |solution_link|
 end
 
 Given(/^I click "(.*?)" on "(.*?)" correction$/) do |action_name, assignment_name|
-  as_teacher_for_assignment( 'TP2', action_name ).click
+  as_teacher_for_assignment( assignment_name, action_name ).click
 end
