@@ -62,10 +62,6 @@ And /^I click "(.*)" on last correction$/ do |action_name|
   as_teacher_for_assignment( 'TP1', action_name ).click
 end
 
-Given(/^I click "(.*?)" on "(.*?)" correction$/) do |action_name, assignment_name|
-  as_teacher_for_assignment( assignment_name, action_name ).click
-end
-
 And /^I fill in correction's information$/ do
   fill_in :correction_public_comments, :with => 'Public comment'
   fill_in :correction_private_comments, :with => 'Private comment'
@@ -184,3 +180,6 @@ Then(/^solution link should be "(.*?)"$/) do |solution_link|
   step 'I should see "'+solution_link+'"'
 end
 
+Given(/^I click "(.*?)" on "(.*?)" correction$/) do |action_name, assignment_name|
+  as_teacher_for_assignment( assignment_name, action_name ).click
+end
